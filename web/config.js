@@ -263,7 +263,7 @@ const config = {
         {
           title: "Comunidad",
           links: [
-            { label: "GitHub", href: "https://github.com/remotto/vibefast", external: true },
+            { label: "GitHub", href: "https://github.com/arampersand/VibeFast", external: true },
             { label: "Remotto", href: "https://remotto.com", external: true },
           ],
         },
@@ -271,7 +271,7 @@ const config = {
       // Compat: links planos usados en el bar inferior
       links: [
         { label: "Docs", href: "/docs" },
-        { label: "GitHub", href: "https://github.com/remotto/vibefast", external: true },
+        { label: "GitHub", href: "https://github.com/arampersand/VibeFast", external: true },
       ],
     },
   },
