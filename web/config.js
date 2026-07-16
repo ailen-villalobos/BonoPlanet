@@ -22,9 +22,9 @@ const config = {
   // Identidad del producto
   // -----------------------------------------------------------
   app: {
-    name: "VibeFast",
+    name: "Bono Planet",
     description:
-      "Boilerplate AI-native para founders. Construido para el Curso de Vibecoding Remotto.",
+      "Tecnología regenerativa para el cuidado del suelo. Bono Tabs nutre tus plantas de forma natural y sostenible.",
     domain: "vibefast.dev", // sin https://, sin www
     locale: "es", // "es" | "en"
     // URL pública: usa NEXT_PUBLIC_APP_URL en .env. En este config solo definimos el default.
@@ -35,13 +35,23 @@ const config = {
   // Identidad visual
   // -----------------------------------------------------------
   brand: {
-    // Color primario en HEX. DaisyUI lo aplica como --color-primary via theme.
-    primary: "#7c3aed", // violet-600
-    // Logo: puede ser texto o ruta a /public/logo.svg
-    logoText: "VibeFast",
+    // Paleta Bono Planet — config = fuente de verdad; layout.js inyecta las CSS vars.
+    primary: "#2F5F3B",
+    secondary: "#7E4B1F",
+    accent: "#FFD238",
+    warm: "#FBED8C",
+    dark: "#1a2e1f",
+    primaryContent: "#ffffff",
+    secondaryContent: "#ffffff",
+    accentContent: "#2F5F3B",
+    // Tipografía: coloca Namaku.woff2 y KGRedHands.woff2 en /public/fonts/
+    fonts: {
+      heading: "Namaku",
+      body: "KG Red Hands",
+    },
+    logoText: "Bono Planet",
     logoSrc: null,
-    // Estilo del bordeado global (DaisyUI usa esto para botones, cards)
-    radius: "1rem",
+    radius: "1.5rem",
   },
 
   // -----------------------------------------------------------
@@ -101,177 +111,161 @@ const config = {
   // -----------------------------------------------------------
   landing: {
     nav: [
-      { label: "Características", href: "#features" },
+      { label: "Beneficios", href: "#features" },
+      { label: "Cómo funciona", href: "#problem" },
       { label: "Precios", href: "#pricing" },
       { label: "Preguntas", href: "#faq" },
-      { label: "Docs", href: "/docs" },
     ],
     hero: {
-      eyebrow: "Curso Vibecoding · Remotto × Startup Chihuahua",
-      title: "De 0 a producto AI-native en 11 semanas.",
+      eyebrow: "Tecnología regenerativa para tus plantas",
+      title: "Bono Tabs: fertiliza tus plantas en segundos, de forma limpia y sostenible.",
       subtitle:
-        "VibeFast es la plantilla del curso: Next.js, Supabase, OpenAI y MCP cableados desde el día 1. Tú extiendes con prompts en Cursor.",
-      cta: { label: "Únete al waitlist", href: "#waitlist" },
-      ctaSecondary: { label: "Ver docs", href: "/docs" },
+        "En Bono Planet desarrollamos tecnologías de economía circular que transforman residuos orgánicos en soluciones regenerativas para el cuidado del suelo; Bono Tabs es nuestra primera innovación para nutrir tus plantas de forma natural.",
+      cta: { label: "Quiero probar Bono Tabs", href: "#waitlist" },
+      ctaSecondary: { label: "Ver cómo funciona", href: "#problem" },
     },
     problem: {
-      eyebrow: "El problema",
-      title: "Construir el andamiaje mata tu momentum.",
+      eyebrow: "El reto",
+      title: "El cuidado de plantas sigue siendo complicado, sucio y poco sostenible.",
       subtitle:
-        "La mayoría de founders se atoran semanas configurando lo mismo antes de tocar su idea real.",
+        "Fertilizantes líquidos, bolsas plásticas y fórmulas químicas que dañan el suelo. La innovación climática aún no llegó a tu maceta.",
       items: [
         {
-          icon: "Timer",
-          title: "Semanas en boilerplate",
-          body: "Auth, base de datos, deploy, emails… configuras lo mismo que todos antes de validar nada.",
+          icon: "FlaskConical",
+          title: "Química innecesaria",
+          body: "La mayoría de fertilizantes usan compuestos sintéticos que alteran el equilibrio natural del suelo a largo plazo.",
         },
         {
-          icon: "Puzzle",
-          title: "Parálisis por herramientas",
-          body: "Cada capa tiene 10 opciones. Comparas en vez de construir y pierdes el hilo.",
+          icon: "Trash2",
+          title: "Residuos plásticos",
+          body: "Envases de un solo uso que terminan en vertederos. El cuidado de plantas no debería generar más basura.",
         },
         {
-          icon: "PlugZap",
-          title: "La IA no se integra sola",
-          body: "Structured outputs, tool use, agentes y MCP suenan bien hasta que hay que cablearlos.",
+          icon: "Clock",
+          title: "Rutinas complicadas",
+          body: "Medir, diluir, recordar fechas. Un proceso tedioso que hace que muchas personas abandonen sus plantas.",
         },
       ],
     },
     features: {
-      eyebrow: "Lo que ya viene listo",
-      title: "Stack completo, una sola decisión por capa.",
-      subtitle: "No pierdes tiempo eligiendo herramientas. Te enfocas en tu producto.",
+      eyebrow: "Beneficios",
+      title: "Cuidado natural para tus plantas y el planeta.",
+      subtitle: "Bono Tabs une economía circular y nutrición orgánica en un formato simple de usar.",
       items: [
         {
-          icon: "Sparkles",
-          title: "AI nativa",
-          body: "OpenAI con structured outputs, tool use, agentes con LangGraph y MCP. Listo para activar.",
+          icon: "Leaf",
+          title: "100% natural",
+          body: "Elaborado con materia orgánica recuperada para nutrir el suelo de manera sostenible.",
         },
         {
-          icon: "Database",
-          title: "Supabase + Auth",
-          body: "Base de datos con RLS, Google Auth y tablas pre-modeladas. No diseñas schema desde cero.",
+          icon: "Droplets",
+          title: "Fácil de usar",
+          body: "Coloca una tableta en la maceta cada dos meses y disfruta un cuidado sin complicaciones.",
         },
         {
-          icon: "Zap",
-          title: "Deploy en minutos",
-          body: "Vercel + Supabase Cloud. Una URL pública el primer día.",
-        },
-        {
-          icon: "BookOpen",
-          title: "Docs semana a semana",
-          body: "Tutoriales mapeados al temario del curso, con prompts de Cursor listos para copiar.",
-        },
-        {
-          icon: "Mail",
-          title: "Email + analytics",
-          body: "Resend para correos transaccionales y PostHog opcional para tracking.",
-        },
-        {
-          icon: "Cpu",
-          title: "Hardware-ready",
-          body: "Conexión MCP al ESP-Claw para el caso de hardware con IA del Módulo 3.",
+          icon: "Recycle",
+          title: "Economía circular",
+          body: "Transformamos residuos orgánicos en soluciones regenerativas que benefician tanto a tus plantas como al planeta.",
         },
       ],
     },
     faq: {
       eyebrow: "Preguntas frecuentes",
-      title: "Lo que todo founder pregunta antes de arrancar.",
+      title: "Todo lo que necesitas saber sobre Bono Tabs.",
       items: [
         {
-          q: "¿Necesito saber programar?",
-          a: "No. El curso asume founders no técnicos. Construyes describiendo en Cursor; el boilerplate hace el resto.",
+          q: "¿Qué contiene una Bono Tab?",
+          a: "Materia orgánica recuperada mediante procesos de economía circular, formulada para liberar nutrientes de forma lenta y constante durante dos meses.",
         },
         {
-          q: "¿Cuánto cuesta correr esto?",
-          a: "Vercel y Supabase tienen tiers gratuitos generosos. OpenAI cobra por uso: con gpt-4o-mini, el costo de un MVP del curso ronda US$5-20.",
+          q: "¿Cómo se usa?",
+          a: "Coloca una tableta en la maceta, cúbrela ligeramente con sustrato y riega con normalidad. Sin medir, sin diluir, sin complicaciones.",
         },
         {
-          q: "¿Puedo cambiar el stack?",
-          a: "Sí, pero el curso (y las docs) asumen este stack. Cambiar pieza por pieza es posible después del curso.",
+          q: "¿Es seguro para plantas de interior?",
+          a: "Sí. Bono Tabs está diseñado para todo tipo de plantas en maceta, tanto de interior como de exterior, sin olores fuertes ni residuos.",
         },
         {
-          q: "¿Y si me atoro?",
-          a: "Las docs incluyen una sección de troubleshooting con los 20 errores más comunes. Además hay sesión semanal con el docente.",
+          q: "¿Cuándo estará disponible?",
+          a: "Estamos en fase de lanzamiento. Únete al waitlist y sé de los primeros en probar Bono Tabs en México.",
         },
       ],
     },
     socialProof: {
-      text: "Founders del curso ya lanzaron con este stack",
-      logos: ["Remotto", "Startup Chihuahua", "Next.js", "Supabase", "OpenAI", "Vercel"],
+      text: "Innovación mexicana para regenerar el suelo",
+      logos: ["Economía circular", "Materia orgánica", "Cero plástico", "Hecho en México"],
     },
     testimonials: {
-      eyebrow: "Prueba social",
-      title: "Founders que ya lanzaron con VibeFast.",
-      subtitle: "Testimonios de cohortes anteriores del curso.",
+      eyebrow: "Primeras impresiones",
+      title: "Quienes ya probaron Bono Tabs.",
+      subtitle: "Testimonios de nuestro programa piloto con plantas de interior.",
       items: [
         {
           quote:
-            "Pasé de una idea en Notion a un MVP con IA en producción en dos semanas. Nunca había tocado código.",
-          author: "Ana Márquez",
-          role: "Founder · Fisio en casa",
+            "Nunca había mantenido una planta viva más de un mes. Con Bono Tabs solo puse la tableta y olvidé el tema. Mi monstera nunca se había visto tan verde.",
+          author: "María González",
+          role: "Diseñadora · CDMX",
         },
         {
           quote:
-            "El boilerplate ya traía auth, base de datos y el agente cableados. Solo describí lo que quería en Cursor.",
-          author: "Diego Sáenz",
-          role: "Founder · Tutor IA",
+            "Lo que más me sorprendió fue lo limpio del proceso. Sin olores, sin bolsas de plástico, sin líquidos derramados. Se siente como un producto del futuro.",
+          author: "Carlos Ruiz",
+          role: "Arquitecto · Guadalajara",
         },
         {
           quote:
-            "Las docs semana a semana fueron mi mapa. Copiaba el prompt, ajustaba y avanzaba sin atorarme.",
-          author: "Lucía Fernández",
-          role: "Founder · Recetario inteligente",
+            "Como alguien que trabaja en sostenibilidad, valoro que realmente usen residuos orgánicos. No es greenwashing, es tecnología circular aplicada.",
+          author: "Ana Torres",
+          role: "Consultora ambiental · Monterrey",
         },
       ],
     },
     finalCta: {
-      eyebrow: "Tu turno",
-      title: "Deja de configurar. Empieza a construir.",
+      eyebrow: "Regenera tu suelo",
+      title: "El futuro del cuidado de plantas empieza con una tableta.",
       subtitle:
-        "Clona la plantilla, edita config.js y ten tu producto AI-native en producción esta semana.",
-      cta: { label: "Únete al waitlist", href: "#waitlist" },
-      ctaSecondary: { label: "Leer las docs", href: "/docs" },
+        "Únete al waitlist y sé de los primeros en experimentar tecnología circular aplicada al hogar.",
+      cta: { label: "Quiero probar Bono Tabs", href: "#waitlist" },
+      ctaSecondary: { label: "Conocer beneficios", href: "#features" },
     },
     waitlist: {
-      eyebrow: "Únete primero",
-      title: "Sé de los primeros en saber.",
-      subtitle: "Te avisamos cuando abramos cupos para la siguiente cohorte.",
-      successMessage: "¡Listo! Te avisamos en cuanto haya novedades.",
-      buttonLabel: "Quiero entrar",
+      eyebrow: "Acceso anticipado",
+      title: "Sé de los primeros en probar Bono Tabs.",
+      subtitle: "Te avisamos cuando abramos pedidos en México. Sin spam, solo innovación.",
+      successMessage: "¡Listo! Te avisamos en cuanto Bono Tabs esté disponible.",
+      buttonLabel: "Quiero probar",
       placeholder: "tu@email.com",
     },
     footer: {
-      tagline: "Construido para founders. Por Remotto × Startup Chihuahua.",
+      tagline: "Tecnología regenerativa para el suelo. Innovación mexicana con impacto global.",
       columns: [
         {
           title: "Producto",
           links: [
-            { label: "Características", href: "#features" },
+            { label: "Beneficios", href: "#features" },
+            { label: "Cómo funciona", href: "#problem" },
             { label: "Precios", href: "#pricing" },
+          ],
+        },
+        {
+          title: "Empresa",
+          links: [
+            { label: "Nuestra misión", href: "#problem" },
             { label: "Preguntas", href: "#faq" },
+            { label: "Contacto", href: "mailto:hola@bonoplanet.mx" },
           ],
         },
         {
-          title: "Recursos",
+          title: "Síguenos",
           links: [
-            { label: "Docs", href: "/docs" },
-            { label: "Quick start", href: "/docs/setup/quick-start" },
-            { label: "Troubleshooting", href: "/docs/troubleshooting/errores-comunes" },
-          ],
-        },
-        {
-          title: "Comunidad",
-          links: [
-            { label: "GitHub", href: "https://github.com/arampersand/VibeFast", external: true },
-            { label: "Remotto", href: "https://remotto.com", external: true },
+            { label: "Instagram", href: "https://instagram.com", external: true },
+            { label: "LinkedIn", href: "https://linkedin.com", external: true },
           ],
         },
       ],
-      // Compat: links planos usados en el bar inferior
       links: [
-        { label: "Docs", href: "/docs" },
-        { label: "GitHub", href: "https://github.com/arampersand/VibeFast", external: true },
+        { label: "Preguntas", href: "#faq" },
+        { label: "Waitlist", href: "#waitlist" },
       ],
     },
   },
@@ -283,30 +277,30 @@ const config = {
   // -----------------------------------------------------------
   pricing: {
     eyebrow: "Precios",
-    title: "Simple y sin sorpresas.",
-    subtitle: "Empieza gratis. Sube de plan cuando tu producto crezca.",
+    title: "Nutrición premium, precio accesible.",
+    subtitle: "Sin suscripciones. Sin sorpresas. Solo plantas más sanas.",
     plans: [
       {
         id: "starter",
-        name: "Starter",
-        price: 0,
-        currency: "USD",
-        interval: "mes",
-        description: "Para probar el producto.",
-        features: ["Hasta 100 usuarios", "Soporte por email", "Branding VibeFast"],
-        cta: "Empezar gratis",
+        name: "Explorador",
+        price: 149,
+        currency: "MXN",
+        interval: "paquete",
+        description: "Para probar Bono Tabs en 2-3 macetas.",
+        features: ["6 tabletas", "2 meses por tableta", "Envío incluido en México"],
+        cta: "Unirme al waitlist",
       },
       {
         id: "pro",
-        name: "Pro",
-        price: 29,
-        currency: "USD",
-        interval: "mes",
-        description: "Para founders que ya facturan.",
-        features: ["Usuarios ilimitados", "Soporte prioritario", "Sin branding"],
-        cta: "Probar Pro",
+        name: "Hogar verde",
+        price: 399,
+        currency: "MXN",
+        interval: "paquete",
+        description: "Para quienes quieren nutrir todo su hogar.",
+        features: ["18 tabletas", "Ahorro del 25%", "Soporte prioritario", "Acceso anticipado"],
+        cta: "Reservar mi paquete",
         highlighted: true,
-        stripePriceId: "", // llenar cuando se active payments
+        stripePriceId: "",
       },
     ],
   },
