@@ -1,18 +1,18 @@
 import "./globals.css"
-import { Space_Grotesk, DM_Sans } from "next/font/google"
+import { Bricolage_Grotesque, Plus_Jakarta_Sans } from "next/font/google"
 import config from "@/config"
 
-const spaceGrotesk = Space_Grotesk({
+const headingFallback = Bricolage_Grotesque({
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  variable: "--font-space-grotesk",
+  weight: ["600", "700", "800"],
+  variable: "--font-heading-fallback",
   display: "swap",
 })
 
-const dmSans = DM_Sans({
+const bodyFont = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  weight: ["400", "500", "700"],
-  variable: "--font-dm-sans",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-body-fallback",
   display: "swap",
 })
 
@@ -47,8 +47,18 @@ export default function RootLayout({ children }) {
       lang={config.app.locale}
       data-theme="vibefast"
       suppressHydrationWarning
-      className={`${spaceGrotesk.variable} ${dmSans.variable}`}
-      style={{ "--color-primary": config.brand.primary }}
+      className={`${headingFallback.variable} ${bodyFont.variable}`}
+      style={{
+        "--font-heading": `"${config.brand.fonts.heading}"`,
+        "--font-body": `"${config.brand.fonts.body}"`,
+        "--font-accent": `"${config.brand.fonts.accent}"`,
+        "--color-primary": config.brand.primary,
+        "--color-secondary": config.brand.secondary,
+        "--color-accent": config.brand.accent,
+        "--color-primary-content": config.brand.primaryContent,
+        "--color-secondary-content": config.brand.secondaryContent,
+        "--color-accent-content": config.brand.accentContent,
+      }}
     >
       <body className="bg-base-100 text-base-content">
         <script

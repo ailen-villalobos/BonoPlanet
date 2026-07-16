@@ -44,10 +44,11 @@ const config = {
     primaryContent: "#ffffff",
     secondaryContent: "#ffffff",
     accentContent: "#2F5F3B",
-    // Tipografía: coloca Namaku.woff2 y KGRedHands.woff2 en /public/fonts/
+    // Tipografía: Namaku (títulos), Plus Jakarta Sans (cuerpo), KG Red Hands (subtítulos/botones)
     fonts: {
       heading: "Namaku",
-      body: "KG Red Hands",
+      body: "Plus Jakarta Sans",
+      accent: "KG Red Hands",
     },
     logoText: "Bono Planet",
     logoSrc: null,

@@ -2,13 +2,15 @@
 
 import { useState } from "react"
 import config from "@/config"
+import { LandingSection, SectionHeading } from "@/components/landing/ui"
+import { MotionSection } from "@/components/landing/motion"
 
 export default function Waitlist() {
   const { eyebrow, title, subtitle, buttonLabel, placeholder, successMessage } =
     config.landing.waitlist
 
   const [email, setEmail] = useState("")
-  const [status, setStatus] = useState("idle") // idle | loading | success | error
+  const [status, setStatus] = useState("idle")
   const [error, setError] = useState(null)
 
   async function onSubmit(e) {
@@ -34,23 +36,21 @@ export default function Waitlist() {
   }
 
   return (
-    <section id="waitlist" className="border-t border-base-200 bg-base-100 py-20 md:py-28">
-      <div className="mx-auto max-w-2xl px-4 text-center">
-        <p className="text-sm font-medium uppercase tracking-wider text-primary">{eyebrow}</p>
-        <h2 className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">{title}</h2>
-        <p className="mt-4 text-base-content/70">{subtitle}</p>
+    <LandingSection id="waitlist" variant="light" containerClass="max-w-2xl text-center">
+      <MotionSection>
+        <SectionHeading eyebrow={eyebrow} title={title} subtitle={subtitle} variant="default" />
 
         {status === "success" ? (
           <div
             role="status"
-            className="mx-auto mt-10 max-w-md rounded-xl border border-success/40 bg-success/10 px-4 py-6 text-success"
+            className="bp-card bp-card-warm mx-auto mt-12 max-w-md text-[#2F5F3B]"
           >
-            {successMessage}
+            <p className="font-heading text-lg font-bold">{successMessage}</p>
           </div>
         ) : (
           <form
             onSubmit={onSubmit}
-            className="mx-auto mt-10 flex max-w-md flex-col gap-2 sm:flex-row"
+            className="mx-auto mt-12 flex max-w-lg flex-col gap-3 sm:flex-row"
           >
             <label htmlFor="waitlist-email" className="sr-only">
               Correo electrónico
@@ -64,26 +64,25 @@ export default function Waitlist() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder={placeholder}
-              className="input input-bordered flex-1"
+              className="flex-1 rounded-full border-2 border-[#2F5F3B]/15 bg-white px-6 py-4 text-[#2F5F3B] outline-none transition placeholder:text-[#2F5F3B]/40 focus:border-[#7E4B1F]"
               disabled={status === "loading"}
             />
             <button
               type="submit"
-              className="btn btn-accent"
+              className="bp-btn-primary rounded-full px-8 py-4 font-semibold disabled:opacity-60"
               disabled={status === "loading"}
             >
-              {status === "loading" && <span className="loading loading-spinner loading-sm" />}
               {status === "loading" ? "Enviando…" : buttonLabel}
             </button>
           </form>
         )}
 
         {status === "error" && (
-          <p role="alert" className="mt-3 text-sm text-error">
+          <p role="alert" className="mt-4 text-sm text-red-600">
             {error}
           </p>
         )}
-      </div>
-    </section>
+      </MotionSection>
+    </LandingSection>
   )
 }

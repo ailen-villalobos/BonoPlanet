@@ -2,35 +2,58 @@
 @plugin "daisyui";
 
 /* ============================================================
-   Tema de marca VibeFast (Flat Design)
-   Paleta: violeta (primary) + naranja (accent/CTA) + slate (neutral).
-   El primary real lo inyecta config.brand.primary desde layout.js
-   como --color-primary inline (config = fuente de verdad).
+   Fuentes de marca Bono Planet
+   Coloca Namaku.woff2 y KGRedHands.woff2 en /public/fonts/
+   ============================================================ */
+@font-face {
+  font-family: "Namaku";
+  src:
+    url("/fonts/Namaku.woff2") format("woff2"),
+    url("/fonts/Namaku.ttf") format("truetype");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "KG Red Hands";
+  src:
+    url("/fonts/KGRedHands.woff2") format("woff2"),
+    url("/fonts/KGRedHands.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================================
+   Tema de marca Bono Planet
+   Paleta: verde (#2F5F3B) + café (#7E4B1F) + amarillo (#FFD238).
+   Los colores reales los inyecta config.brand desde layout.js.
    ============================================================ */
 @plugin "daisyui/theme" {
   name: "vibefast";
   default: true;
   prefersdark: false;
   color-scheme: light;
-  --color-primary: #7c3aed;
+  --color-primary: #2F5F3B;
   --color-primary-content: #ffffff;
-  --color-secondary: #6d28d9;
+  --color-secondary: #7E4B1F;
   --color-secondary-content: #ffffff;
-  --color-accent: #f97316;
-  --color-accent-content: #ffffff;
-  --color-neutral: #1e293b;
-  --color-neutral-content: #f8fafc;
+  --color-accent: #FFD238;
+  --color-accent-content: #2F5F3B;
+  --color-neutral: #2F5F3B;
+  --color-neutral-content: #FBED8C;
   --color-base-100: #ffffff;
-  --color-base-200: #f8fafc;
-  --color-base-300: #e2e8f0;
-  --color-base-content: #1e293b;
+  --color-base-200: #fbf6e3;
+  --color-base-300: #f5ebc4;
+  --color-base-content: #2F5F3B;
   --color-info: #0ea5e9;
   --color-success: #16a34a;
   --color-warning: #f59e0b;
   --color-error: #dc2626;
-  --radius-box: 1rem;
-  --radius-field: 0.5rem;
-  --radius-selector: 0.5rem;
+  --radius-box: 1.5rem;
+  --radius-field: 0.75rem;
+  --radius-selector: 0.75rem;
 }
 
 @plugin "daisyui/theme" {
@@ -38,25 +61,25 @@
   default: false;
   prefersdark: true;
   color-scheme: dark;
-  --color-primary: #a78bfa;
+  --color-primary: #4d8f5f;
   --color-primary-content: #ffffff;
-  --color-secondary: #8b5cf6;
-  --color-secondary-content: #1e1b2e;
-  --color-accent: #fb923c;
-  --color-accent-content: #1e1b2e;
-  --color-neutral: #e2e8f0;
-  --color-neutral-content: #0f172a;
-  --color-base-100: #0f172a;
-  --color-base-200: #1e293b;
-  --color-base-300: #334155;
-  --color-base-content: #e2e8f0;
+  --color-secondary: #a67c52;
+  --color-secondary-content: #ffffff;
+  --color-accent: #FFD238;
+  --color-accent-content: #2F5F3B;
+  --color-neutral: #FBED8C;
+  --color-neutral-content: #2F5F3B;
+  --color-base-100: #1a2e1f;
+  --color-base-200: #243a28;
+  --color-base-300: #2F5F3B;
+  --color-base-content: #fbf6e3;
   --color-info: #38bdf8;
   --color-success: #4ade80;
   --color-warning: #fbbf24;
   --color-error: #f87171;
-  --radius-box: 1rem;
-  --radius-field: 0.5rem;
-  --radius-selector: 0.5rem;
+  --radius-box: 1.5rem;
+  --radius-field: 0.75rem;
+  --radius-selector: 0.75rem;
 }
 
 html,
@@ -65,17 +88,134 @@ body {
 }
 
 body {
-  font-family: var(--font-dm-sans, ui-sans-serif, system-ui, sans-serif);
+  font-family: var(--font-body, "Plus Jakarta Sans"), var(--font-body-fallback), sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Tipografía de display: headings con Space Grotesk */
 h1,
 h2,
 h3,
 h4,
 .font-heading {
-  font-family: var(--font-space-grotesk, var(--font-dm-sans, ui-sans-serif, system-ui, sans-serif));
+  font-family: var(--font-heading, "Namaku"), var(--font-heading-fallback), sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.font-accent {
+  font-family: var(--font-accent, "KG Red Hands"), cursive, sans-serif;
+}
+
+/* ============================================================
+   Bono Planet · Landing design system
+   ============================================================ */
+
+.bp-section-green {
+  background-color: #2f5f3b;
+  color: #ffffff;
+}
+
+.bp-section-warm {
+  background-color: color-mix(in srgb, #fbed8c 35%, #faf7ee);
+  color: #2f5f3b;
+}
+
+.bp-section-dark {
+  background-color: #1a2e1f;
+  color: #fbf6e3;
+}
+
+.bp-section-light {
+  background-color: #faf7ee;
+  color: #2f5f3b;
+}
+
+.bp-btn-primary {
+  background-color: #ffd238;
+  color: #2f5f3b;
+  font-family: var(--font-accent, "KG Red Hands"), cursive, sans-serif;
+  box-shadow: 0 4px 24px color-mix(in srgb, #ffd238 40%, transparent);
+}
+
+.bp-btn-primary:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow:
+    0 8px 32px color-mix(in srgb, #ffd238 50%, transparent),
+    0 0 0 1px color-mix(in srgb, #ffd238 60%, #7e4b1f);
+}
+
+.bp-card {
+  border-radius: 1.5rem;
+  padding: 2rem;
+  box-shadow:
+    0 4px 24px color-mix(in srgb, #2f5f3b 8%, transparent),
+    0 1px 3px color-mix(in srgb, #2f5f3b 6%, transparent);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.bp-card:hover {
+  box-shadow:
+    0 12px 40px color-mix(in srgb, #2f5f3b 12%, transparent),
+    0 0 0 1px color-mix(in srgb, #7e4b1f 15%, transparent);
+}
+
+.bp-card-warm {
+  background: color-mix(in srgb, #fbed8c 55%, white);
+  border: 1px solid color-mix(in srgb, #7e4b1f 20%, transparent);
+}
+
+.bp-card-green {
+  background: color-mix(in srgb, #2f5f3b 92%, #1a2e1f);
+  border: 1px solid color-mix(in srgb, white 12%, transparent);
+  color: white;
+}
+
+.bp-card-white {
+  background: white;
+  border: 1px solid color-mix(in srgb, #7e4b1f 12%, transparent);
+}
+
+.bp-icon-blob {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1.25rem;
+  width: 4rem;
+  height: 4rem;
+  transition: transform 0.3s ease;
+}
+
+.bp-hero-shine {
+  background: linear-gradient(
+    135deg,
+    transparent 30%,
+    color-mix(in srgb, white 8%, transparent) 50%,
+    transparent 70%
+  );
+}
+
+.bp-leaf-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5C20 15 10 25 12 38C14 48 22 52 30 52C38 52 46 48 48 38C50 25 40 15 30 5Z' fill='%23ffffff' fill-opacity='0.06'/%3E%3C/svg%3E");
+  background-size: 60px 60px;
+}
+
+.bp-float {
+  animation: bp-float 6s ease-in-out infinite;
+}
+
+@keyframes bp-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.landing-page {
+  background-color: #2f5f3b;
 }
 
 /* ============================================================

@@ -3,7 +3,7 @@ import Footer from "@/components/layout/Footer"
 
 export default function MarketingLayout({ children }) {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="landing-page flex min-h-screen flex-col">
       <Navbar />
       <main className="flex-1">{children}</main>
       <Footer />
