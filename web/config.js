@@ -250,6 +250,11 @@ const config = {
     finalCta: {
       title: "Tus plantas lo merecen.",
       subtitle: "Consigue Bono Tabs hoy en Mercado Libre.",
+      signup: {
+        title: "Regístrate para recibir descuentos especiales",
+        cta: "Entrar con Google",
+        href: "/login",
+      },
     },
     footer: {
       tagline: "Tecnología de economía circular para regenerar el suelo. Innovación mexicana.",

@@ -1,13 +1,14 @@
 "use client"
 
 import config from "@/config"
-import { BuyButton, LandingSection } from "@/components/landing/ui"
+import { BuyButton, LandingSection, SecondaryButton } from "@/components/landing/ui"
 import { CircleRing, FloatingDot, OrganicBlob, SoilTexture } from "@/components/landing/decorations"
 import { MotionSection } from "@/components/landing/motion"
 
 export default function FinalCta() {
-  const { title, subtitle } = config.landing.finalCta
+  const { title, subtitle, signup } = config.landing.finalCta
   const shop = config.landing.shop
+  const showSignup = config.features.googleAuth && signup
 
   return (
     <LandingSection id="buy" variant="green" containerClass="max-w-3xl text-center">
@@ -28,6 +29,17 @@ export default function FinalCta() {
             {shop.label}
           </BuyButton>
         </div>
+
+        {showSignup && (
+          <div className="mt-14 border-t border-white/15 pt-10">
+            <p className="font-accent text-lg text-white/85 md:text-xl">{signup.title}</p>
+            <div className="mt-6 flex justify-center">
+              <SecondaryButton href={signup.href} variant="onGreen" size="lg">
+                {signup.cta}
+              </SecondaryButton>
+            </div>
+          </div>
+        )}
       </MotionSection>
     </LandingSection>
   )
