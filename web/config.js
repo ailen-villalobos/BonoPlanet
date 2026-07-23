@@ -252,8 +252,9 @@ const config = {
       subtitle: "Consigue Bono Tabs hoy en Mercado Libre.",
       signup: {
         title: "Regístrate para recibir descuentos especiales",
-        cta: "Entrar con Google",
-        href: "/login",
+        placeholder: "Ingresa tu email aquí",
+        buttonLabel: "Registrarme",
+        successMessage: "¡Listo! Te avisaremos con descuentos exclusivos.",
       },
     },
     footer: {

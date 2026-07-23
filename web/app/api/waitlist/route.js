@@ -7,7 +7,7 @@ import { sendWaitlistConfirm } from "@/lib/resend/send"
 // Si el correo ya existe (unique), lo tratamos como éxito.
 export async function POST(request) {
   try {
-    const { email } = await request.json()
+    const { email, source: rawSource } = await request.json()
 
     if (
       !email ||
@@ -18,10 +18,12 @@ export async function POST(request) {
     }
 
     const normalized = email.toLowerCase().trim()
+    const source =
+      typeof rawSource === "string" && rawSource.trim() ? rawSource.trim().slice(0, 64) : "landing"
     const supabase = await createClient()
     const { error } = await supabase
       .from("waitlist")
-      .insert({ email: normalized, source: "landing" })
+      .insert({ email: normalized, source })
 
     // 23505 = unique_violation → el correo ya estaba en la lista.
     if (error && error.code !== "23505") {
