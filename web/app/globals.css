@@ -88,7 +88,7 @@ body {
 }
 
 body {
-  font-family: var(--font-body, "Plus Jakarta Sans"), var(--font-body-fallback), sans-serif;
+  font-family: var(--font-body-fallback), sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -97,12 +97,12 @@ h2,
 h3,
 h4,
 .font-heading {
-  font-family: var(--font-heading, "Namaku"), var(--font-heading-fallback), sans-serif;
+  font-family: var(--font-heading-fallback), var(--font-heading, "Namaku"), sans-serif;
   letter-spacing: -0.02em;
 }
 
 .font-accent {
-  font-family: var(--font-accent, "KG Red Hands"), cursive, sans-serif;
+  font-family: var(--font-accent, "KG Red Hands"), var(--font-body-fallback), sans-serif;
 }
 
 /* ============================================================
@@ -132,7 +132,7 @@ h4,
 .bp-btn-primary {
   background-color: #ffd238;
   color: #2f5f3b;
-  font-family: var(--font-accent, "KG Red Hands"), cursive, sans-serif;
+  font-family: var(--font-accent, "KG Red Hands"), var(--font-body-fallback), sans-serif;
   box-shadow: 0 4px 24px color-mix(in srgb, #ffd238 40%, transparent);
 }
 
@@ -198,6 +198,11 @@ h4,
 .bp-leaf-pattern {
   background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5C20 15 10 25 12 38C14 48 22 52 30 52C38 52 46 48 48 38C50 25 40 15 30 5Z' fill='%23ffffff' fill-opacity='0.06'/%3E%3C/svg%3E");
   background-size: 60px 60px;
+}
+
+.bp-petal-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='40' cy='8' r='6'/%3E%3Ccircle cx='63' cy='17' r='6'/%3E%3Ccircle cx='72' cy='40' r='6'/%3E%3Ccircle cx='63' cy='63' r='6'/%3E%3Ccircle cx='40' cy='72' r='6'/%3E%3Ccircle cx='17' cy='63' r='6'/%3E%3Ccircle cx='8' cy='40' r='6'/%3E%3Ccircle cx='17' cy='17' r='6'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 80px 80px;
 }
 
 .bp-float {

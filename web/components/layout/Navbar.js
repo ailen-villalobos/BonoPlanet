@@ -3,9 +3,12 @@
 import Link from "next/link"
 import { Menu } from "lucide-react"
 import config from "@/config"
-import Logo from "@/components/Logo"
+import BrandLockup from "@/components/BrandLockup"
+import { BuyButton } from "@/components/landing/ui"
 
 export default function Navbar() {
+  const shop = config.landing.shop
+
   return (
     <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-[#2F5F3B]/90 backdrop-blur-xl">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
@@ -25,12 +28,21 @@ export default function Navbar() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <a
+                  href={shop.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-bold text-[#FFD238] hover:text-[#FFD238]"
+                >
+                  {shop.label}
+                </a>
+              </li>
             </ul>
           </div>
 
-          <Link href="/" className="flex items-center gap-2.5 font-heading text-lg font-bold tracking-tight text-white">
-            <Logo className="size-8" variant="onGreen" />
-            {config.brand.logoText}
+          <Link href="/" className="transition-opacity hover:opacity-90">
+            <BrandLockup />
           </Link>
         </div>
 
@@ -48,17 +60,9 @@ export default function Navbar() {
         </ul>
 
         <div className="flex items-center gap-2">
-          {config.features.googleAuth && (
-            <Link
-              href={config.auth.loginUrl}
-              className="hidden rounded-full border border-white/25 px-4 py-2 text-sm font-medium text-white transition hover:border-white/50 sm:inline-flex"
-            >
-              Entrar
-            </Link>
-          )}
-          <Link href="#waitlist" className="bp-btn-primary rounded-full px-5 py-2.5 text-sm font-semibold">
-            {config.landing.hero.cta.label}
-          </Link>
+          <BuyButton href={shop.href} size="sm" className="shadow-md">
+            {shop.label}
+          </BuyButton>
         </div>
       </nav>
     </header>

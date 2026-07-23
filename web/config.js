@@ -24,7 +24,7 @@ const config = {
   app: {
     name: "Bono Planet",
     description:
-      "Tecnología regenerativa para el cuidado del suelo. Bono Tabs nutre tus plantas de forma natural y sostenible.",
+      "Bono Tabs: tableta de abono natural para plantas de interior. Nutrición lenta, retención de agua y materia orgánica recuperada.",
     domain: "vibefast.dev", // sin https://, sin www
     locale: "es", // "es" | "en"
     // URL pública: usa NEXT_PUBLIC_APP_URL en .env. En este config solo definimos el default.
@@ -51,7 +51,8 @@ const config = {
       accent: "KG Red Hands",
     },
     logoText: "Bono Planet",
-    logoSrc: null,
+    wordmark: "BONO PLANET",
+    logoSrc: "/logo.png",
     radius: "1.5rem",
   },
 
@@ -59,7 +60,7 @@ const config = {
   // Toggles de features — encienden/apagan rutas y componentes
   // -----------------------------------------------------------
   features: {
-    waitlist: true, // Captura emails en landing — Sem 1
+    waitlist: false,
     googleAuth: true, // Login con Google — Sem 2
     emailLogin: false, // Magic link email — opcional
     aiChat: true, // Chat AI en /chat — Sem 3
@@ -69,7 +70,7 @@ const config = {
     rag: false, // RAG con pgvector — opcional
     posthog: false, // Tracking — opcional
     resend: true, // Email — Sem 1+
-    pricing: true, // Muestra la sección de precios en la landing (vitrina; el cobro real es `payments`)
+    pricing: false, // Vitrina desactivada — compra vía Mercado Libre
     payments: false, // Stripe — opcional, fuera del temario
     hardware: false, // ESP-Claw bridge — Sem 8
   },
@@ -111,163 +112,177 @@ const config = {
   // Landing — todo el copy de la página pública
   // -----------------------------------------------------------
   landing: {
+    shop: {
+      label: "COMPRA AQUÍ",
+      href: "https://listado.mercadolibre.com.mx/_CustId_1325577279?item_id=MLM1856844773&category_id=MLM442408&seller_id=1325577279&client=recoview-selleritems&recos_listing=true",
+    },
     nav: [
       { label: "Beneficios", href: "#features" },
-      { label: "Cómo funciona", href: "#problem" },
-      { label: "Precios", href: "#pricing" },
+      { label: "Cómo funciona", href: "#how-it-works" },
+      { label: "Bono Planet", href: "#about" },
       { label: "Preguntas", href: "#faq" },
     ],
     hero: {
-      eyebrow: "Tecnología regenerativa para tus plantas",
-      title: "Bono Tabs: fertiliza tus plantas en segundos, de forma limpia y sostenible.",
-      subtitle:
-        "En Bono Planet desarrollamos tecnologías de economía circular que transforman residuos orgánicos en soluciones regenerativas para el cuidado del suelo; Bono Tabs es nuestra primera innovación para nutrir tus plantas de forma natural.",
-      cta: { label: "Quiero probar Bono Tabs", href: "#waitlist" },
-      ctaSecondary: { label: "Ver cómo funciona", href: "#problem" },
-    },
-    problem: {
-      eyebrow: "El reto",
-      title: "El cuidado de plantas sigue siendo complicado, sucio y poco sostenible.",
-      subtitle:
-        "Fertilizantes líquidos, bolsas plásticas y fórmulas químicas que dañan el suelo. La innovación climática aún no llegó a tu maceta.",
-      items: [
-        {
-          icon: "FlaskConical",
-          title: "Química innecesaria",
-          body: "La mayoría de fertilizantes usan compuestos sintéticos que alteran el equilibrio natural del suelo a largo plazo.",
-        },
-        {
-          icon: "Trash2",
-          title: "Residuos plásticos",
-          body: "Envases de un solo uso que terminan en vertederos. El cuidado de plantas no debería generar más basura.",
-        },
-        {
-          icon: "Clock",
-          title: "Rutinas complicadas",
-          body: "Medir, diluir, recordar fechas. Un proceso tedioso que hace que muchas personas abandonen sus plantas.",
-        },
+      title: "Bono Tabs",
+      tagline: "Lo que tu planta necesita en una tableta compacta.",
+      description:
+        "Bono Tabs es una tableta de abono natural para plantas de interior, elaborada a partir de residuos orgánicos recuperados. Nutre tus plantas y ayuda a retener agua para mantener un sustrato saludable durante más tiempo.",
+      benefits: [
+        { icon: "Leaf", text: "Nutrición de liberación lenta." },
+        { icon: "Droplets", text: "Retiene hasta 3 veces su peso en agua." },
+        { icon: "Recycle", text: "Elaborada con residuos orgánicos recuperados." },
+        { icon: "Flower2", text: "Ideal para macetas y plantas de interior." },
       ],
     },
     features: {
       eyebrow: "Beneficios",
-      title: "Cuidado natural para tus plantas y el planeta.",
-      subtitle: "Bono Tabs une economía circular y nutrición orgánica en un formato simple de usar.",
+      title: "Cuatro razones para elegir Bono Tabs.",
       items: [
         {
           icon: "Leaf",
-          title: "100% natural",
-          body: "Elaborado con materia orgánica recuperada para nutrir el suelo de manera sostenible.",
+          title: "Nutrición lenta",
+          body: "Libera nutrientes de forma constante durante hasta dos meses.",
         },
         {
           icon: "Droplets",
-          title: "Fácil de usar",
-          body: "Coloca una tableta en la maceta cada dos meses y disfruta un cuidado sin complicaciones.",
+          title: "Retención de agua",
+          body: "Absorbe hasta 3× su peso en agua y mantiene el sustrato húmedo por más tiempo.",
         },
         {
           icon: "Recycle",
-          title: "Economía circular",
-          body: "Transformamos residuos orgánicos en soluciones regenerativas que benefician tanto a tus plantas como al planeta.",
+          title: "Materia orgánica recuperada",
+          body: "Elaborada con residuos orgánicos transformados en abono natural.",
+        },
+        {
+          icon: "Flower2",
+          title: "Para tu hogar",
+          body: "Diseñada para macetas y plantas de interior. Sin medir, sin diluir.",
         },
       ],
+    },
+    howItWorks: {
+      eyebrow: "Cómo funciona",
+      title: "Tres pasos. Cero complicaciones.",
+      steps: [
+        {
+          icon: "PackageOpen",
+          title: "Retira la envoltura",
+          body: "Quita el empaque de tu Bono Tab antes de usarla.",
+        },
+        {
+          icon: "Hand",
+          title: "Desmorona la tableta",
+          body: "Desmorónala por encima de la tierra de tu planta.",
+        },
+        {
+          icon: "Droplets",
+          title: "Riega y disfruta",
+          body: "Riega con normalidad y disfruta la nutrición durante 2 meses.",
+        },
+      ],
+      note: "Notarás que la tierra permanece húmeda por más tiempo.",
+    },
+    emotional: {
+      title: "No tienes mala mano.",
+      tagline: "Solo te falta Bono Tabs.",
+      body: "Una tableta diseñada para nutrir tus plantas durante hasta dos meses mientras ayuda a conservar la humedad del sustrato.",
+    },
+    circularEconomy: {
+      eyebrow: "Economía circular",
+      title: "De residuo a nutriente.",
+      description:
+        "Transformamos residuos orgánicos en soluciones regenerativas para el cuidado del suelo.",
+      flow: [
+        {
+          icon: "Trash2",
+          title: "Residuos orgánicos",
+          body: "Representan casi el 50% de los desechos en nuestro estado.",
+        },
+        {
+          icon: "Recycle",
+          title: "Bono Planet",
+          body: "Recolectamos residuos y los procesamos.",
+        },
+        {
+          icon: "CircleDot",
+          title: "Bono Tabs",
+          body: "Nuestro primer producto.",
+        },
+        {
+          icon: "Flower2",
+          title: "Tus plantas",
+          body: "Se benefician de los nutrientes que aportan Bono Tabs.",
+        },
+        {
+          icon: "Sprout",
+          title: "Un suelo más saludable",
+          body: "Soñamos con que nuestros productos no solo nutran tus macetas, sino algún día jardines enteros y el campo mexicano.",
+        },
+      ],
+    },
+    about: {
+      eyebrow: "Sobre Bono Planet",
+      title: "Tecnología ambiental hecha en México.",
+      body: "Somos una startup de tecnología climática que transforma residuos orgánicos en productos regenerativos. Bono Tabs es el primer paso: nutrición natural y retención de agua para tus plantas de interior.",
     },
     faq: {
       eyebrow: "Preguntas frecuentes",
-      title: "Todo lo que necesitas saber sobre Bono Tabs.",
+      title: "Lo esencial sobre Bono Tabs.",
       items: [
         {
-          q: "¿Qué contiene una Bono Tab?",
-          a: "Materia orgánica recuperada mediante procesos de economía circular, formulada para liberar nutrientes de forma lenta y constante durante dos meses.",
+          q: "¿Qué es Bono Tabs?",
+          a: "Una tableta de abono natural para plantas de interior, hecha con materia orgánica recuperada. Nutre y ayuda a retener agua en el sustrato.",
         },
         {
           q: "¿Cómo se usa?",
-          a: "Coloca una tableta en la maceta, cúbrela ligeramente con sustrato y riega con normalidad. Sin medir, sin diluir, sin complicaciones.",
+          a: "Retira la envoltura, desmorona la tableta sobre la tierra de tu planta y riega con normalidad. La nutrición dura hasta dos meses.",
         },
         {
-          q: "¿Es seguro para plantas de interior?",
-          a: "Sí. Bono Tabs está diseñado para todo tipo de plantas en maceta, tanto de interior como de exterior, sin olores fuertes ni residuos.",
+          q: "¿Retiene agua de verdad?",
+          a: "Sí. Bono Tabs puede absorber hasta 3 veces su peso en agua, ayudando a mantener el sustrato húmedo por más tiempo.",
         },
         {
-          q: "¿Cuándo estará disponible?",
-          a: "Estamos en fase de lanzamiento. Únete al waitlist y sé de los primeros en probar Bono Tabs en México.",
-        },
-      ],
-    },
-    socialProof: {
-      text: "Innovación mexicana para regenerar el suelo",
-      logos: ["Economía circular", "Materia orgánica", "Cero plástico", "Hecho en México"],
-    },
-    testimonials: {
-      eyebrow: "Primeras impresiones",
-      title: "Quienes ya probaron Bono Tabs.",
-      subtitle: "Testimonios de nuestro programa piloto con plantas de interior.",
-      items: [
-        {
-          quote:
-            "Nunca había mantenido una planta viva más de un mes. Con Bono Tabs solo puse la tableta y olvidé el tema. Mi monstera nunca se había visto tan verde.",
-          author: "María González",
-          role: "Diseñadora · CDMX",
-        },
-        {
-          quote:
-            "Lo que más me sorprendió fue lo limpio del proceso. Sin olores, sin bolsas de plástico, sin líquidos derramados. Se siente como un producto del futuro.",
-          author: "Carlos Ruiz",
-          role: "Arquitecto · Guadalajara",
-        },
-        {
-          quote:
-            "Como alguien que trabaja en sostenibilidad, valoro que realmente usen residuos orgánicos. No es greenwashing, es tecnología circular aplicada.",
-          author: "Ana Torres",
-          role: "Consultora ambiental · Monterrey",
+          q: "¿Dónde puedo comprarla?",
+          a: "En nuestra tienda oficial de Mercado Libre. Haz clic en «COMPRA AQUÍ» en cualquier sección de esta página.",
         },
       ],
     },
     finalCta: {
-      eyebrow: "Regenera tu suelo",
-      title: "El futuro del cuidado de plantas empieza con una tableta.",
-      subtitle:
-        "Únete al waitlist y sé de los primeros en experimentar tecnología circular aplicada al hogar.",
-      cta: { label: "Quiero probar Bono Tabs", href: "#waitlist" },
-      ctaSecondary: { label: "Conocer beneficios", href: "#features" },
-    },
-    waitlist: {
-      eyebrow: "Acceso anticipado",
-      title: "Sé de los primeros en probar Bono Tabs.",
-      subtitle: "Te avisamos cuando abramos pedidos en México. Sin spam, solo innovación.",
-      successMessage: "¡Listo! Te avisamos en cuanto Bono Tabs esté disponible.",
-      buttonLabel: "Quiero probar",
-      placeholder: "tu@email.com",
+      title: "Tus plantas lo merecen.",
+      subtitle: "Consigue Bono Tabs hoy en Mercado Libre.",
     },
     footer: {
-      tagline: "Tecnología regenerativa para el suelo. Innovación mexicana con impacto global.",
+      tagline: "Tecnología de economía circular para regenerar el suelo. Innovación mexicana.",
       columns: [
         {
           title: "Producto",
           links: [
             { label: "Beneficios", href: "#features" },
-            { label: "Cómo funciona", href: "#problem" },
-            { label: "Precios", href: "#pricing" },
+            { label: "Cómo funciona", href: "#how-it-works" },
+            { label: "Comprar", href: "https://listado.mercadolibre.com.mx/_CustId_1325577279?item_id=MLM1856844773&category_id=MLM442408&seller_id=1325577279&client=recoview-selleritems&recos_listing=true", external: true },
           ],
         },
         {
           title: "Empresa",
           links: [
-            { label: "Nuestra misión", href: "#problem" },
+            { label: "Bono Planet", href: "#about" },
+            { label: "Economía circular", href: "#circular" },
             { label: "Preguntas", href: "#faq" },
-            { label: "Contacto", href: "mailto:hola@bonoplanet.mx" },
           ],
         },
         {
-          title: "Síguenos",
+          title: "Comprar",
           links: [
-            { label: "Instagram", href: "https://instagram.com", external: true },
-            { label: "LinkedIn", href: "https://linkedin.com", external: true },
+            {
+              label: "Mercado Libre",
+              href: "https://listado.mercadolibre.com.mx/_CustId_1325577279?item_id=MLM1856844773&category_id=MLM442408&seller_id=1325577279&client=recoview-selleritems&recos_listing=true",
+              external: true,
+            },
+            { label: "Contacto", href: "mailto:hola@bonoplanet.mx" },
           ],
         },
       ],
-      links: [
-        { label: "Preguntas", href: "#faq" },
-        { label: "Waitlist", href: "#waitlist" },
-      ],
+      links: [{ label: "Preguntas", href: "#faq" }],
     },
   },
 

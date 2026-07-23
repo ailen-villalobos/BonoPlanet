@@ -1,36 +1,32 @@
 "use client"
 
 import config from "@/config"
-import { LandingSection, PrimaryButton, SecondaryButton, SectionHeading } from "@/components/landing/ui"
+import { BuyButton, LandingSection } from "@/components/landing/ui"
 import { CircleRing, FloatingDot, OrganicBlob, SoilTexture } from "@/components/landing/decorations"
 import { MotionSection } from "@/components/landing/motion"
 
 export default function FinalCta() {
-  const { eyebrow, title, subtitle, cta, ctaSecondary } = config.landing.finalCta
+  const { title, subtitle } = config.landing.finalCta
+  const shop = config.landing.shop
 
   return (
-    <LandingSection variant="green" containerClass="max-w-4xl text-center">
+    <LandingSection id="buy" variant="green" containerClass="max-w-3xl text-center">
       <SoilTexture />
-      <div className="bp-leaf-pattern absolute inset-0" aria-hidden />
+      <div className="bp-petal-pattern absolute inset-0" aria-hidden />
       <OrganicBlob className="left-[10%] top-[20%] size-40" color="#FFD238" />
       <CircleRing className="right-[15%] top-[30%] size-32 border-white/15" />
       <FloatingDot className="bottom-[25%] right-[20%]" size={8} color="#FBED8C" />
 
       <MotionSection className="relative z-10">
-        <SectionHeading
-          eyebrow={eyebrow}
-          title={title}
-          subtitle={subtitle}
-          variant="onGreen"
-        />
+        <h2 className="font-heading text-balance text-4xl font-bold leading-tight text-white md:text-5xl lg:text-6xl">
+          {title}
+        </h2>
+        <p className="font-accent mx-auto mt-5 max-w-lg text-lg text-white/75 md:text-xl">{subtitle}</p>
 
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-          <PrimaryButton href={cta.href}>{cta.label}</PrimaryButton>
-          {ctaSecondary && (
-            <SecondaryButton href={ctaSecondary.href} variant="onGreen">
-              {ctaSecondary.label}
-            </SecondaryButton>
-          )}
+        <div className="mt-10 flex justify-center">
+          <BuyButton href={shop.href} size="xl">
+            {shop.label}
+          </BuyButton>
         </div>
       </MotionSection>
     </LandingSection>

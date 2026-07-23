@@ -1,7 +1,7 @@
 import Link from "next/link"
 import config from "@/config"
-import Logo from "@/components/Logo"
-import { LeafPattern, SoilTexture } from "@/components/landing/decorations"
+import BrandLockup from "@/components/BrandLockup"
+import { PetalPattern, SoilTexture } from "@/components/landing/decorations"
 
 function FooterLink({ link, className }) {
   return (
@@ -22,16 +22,14 @@ export default function Footer() {
   return (
     <footer className="relative overflow-hidden bg-[#2F5F3B] text-white">
       <SoilTexture />
-      <LeafPattern className="-left-20 top-10 size-80 text-white" />
-      <LeafPattern className="-right-16 bottom-0 size-64 rotate-45 text-white" />
+      <PetalPattern className="-right-16 top-8 size-64 text-white" opacity={0.05} />
 
       <div className="relative z-10 mx-auto max-w-7xl px-5 py-20 md:px-8">
         <div className="grid gap-12 md:grid-cols-[1.6fr_repeat(3,1fr)]">
           <div>
-            <div className="flex items-center gap-3">
-              <Logo className="size-9" variant="onGreen" />
-              <span className="font-heading text-xl font-bold">{config.brand.logoText}</span>
-            </div>
+            <Link href="/" className="inline-block transition-opacity hover:opacity-90">
+              <BrandLockup logoClassName="h-11 w-auto md:h-12" />
+            </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/65">{tagline}</p>
             <div className="mt-6 inline-flex rounded-full border border-[#7E4B1F]/40 bg-[#7E4B1F]/20 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#FBED8C]">
               Innovación mexicana

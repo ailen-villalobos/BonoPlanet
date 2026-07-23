@@ -1,3 +1,4 @@
+/** Forma orgánica tipo gota de agua — decoración de fondo. */
 export function LeafPattern({ className = "" }) {
   return (
     <svg
@@ -16,6 +17,41 @@ export function LeafPattern({ className = "" }) {
         opacity="0.5"
       />
     </svg>
+  )
+}
+
+/** Pétalos escalonados del isotipo — patrón decorativo sutil (3–8% opacidad). */
+export function PetalPattern({ className = "", opacity = 0.06 }) {
+  return (
+    <svg
+      className={`pointer-events-none absolute ${className}`}
+      style={{ opacity }}
+      viewBox="0 0 200 200"
+      fill="none"
+      aria-hidden
+    >
+      {[0, 45, 90, 135, 180, 225, 270, 315].map((deg) => (
+        <circle
+          key={deg}
+          cx={100 + 72 * Math.cos((deg * Math.PI) / 180)}
+          cy={100 + 72 * Math.sin((deg * Math.PI) / 180)}
+          r="10"
+          fill="currentColor"
+        />
+      ))}
+      <circle cx="100" cy="100" r="52" stroke="currentColor" strokeWidth="1.5" opacity="0.5" />
+    </svg>
+  )
+}
+
+/** Silueta circular orgánica del isotipo — solo contorno. */
+export function IsotypeRing({ className = "", opacity = 0.05 }) {
+  return (
+    <div
+      className={`pointer-events-none absolute rounded-full border border-current ${className}`}
+      style={{ opacity }}
+      aria-hidden
+    />
   )
 }
 
@@ -105,11 +141,11 @@ export function ProductVisual({ className = "" }) {
               Dos meses de nutrición.
             </p>
             <p className="text-sm leading-relaxed text-white/70 md:text-base">
-              Materia orgánica recuperada, liberación lenta y cero residuos plásticos. Tecnología
-              circular en formato premium.
+              Materia orgánica recuperada con liberación lenta y retención de agua. Nutrición natural
+              en formato compacto.
             </p>
             <div className="flex flex-wrap gap-3 pt-2">
-              {["100% orgánico", "Hecho en México", "Cero plástico"].map((tag) => (
+              {["Liberación lenta", "Hecho en México", "Retiene agua"].map((tag) => (
                 <span
                   key={tag}
                   className="rounded-full border border-[#7E4B1F]/40 bg-[#7E4B1F]/20 px-3 py-1 text-xs font-medium text-[#FBED8C]"

@@ -32,7 +32,7 @@ export const metadata = {
     locale: config.app.locale === "es" ? "es_MX" : "en_US",
   },
   twitter: { card: "summary_large_image" },
-  icons: { icon: "/favicon.svg" },
+  icons: { icon: "/logo.png", apple: "/logo.png" },
 }
 
 export const viewport = {
@@ -60,7 +60,7 @@ export default function RootLayout({ children }) {
         "--color-accent-content": config.brand.accentContent,
       }}
     >
-      <body className="bg-base-100 text-base-content">
+      <body className={`${bodyFont.className} bg-base-100 text-base-content`}>
         <script
           dangerouslySetInnerHTML={{
             __html: `try{var t=localStorage.getItem('theme');if(t==='vibefast'||t==='vibefast-dark'){document.documentElement.setAttribute('data-theme',t)}}catch(e){}`,

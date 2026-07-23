@@ -50,14 +50,42 @@ export function SectionHeading({ eyebrow, title, subtitle, variant = "default", 
   )
 }
 
-export function PrimaryButton({ href, children, className = "", size = "lg" }) {
-  const sizeClass = size === "lg" ? "px-8 py-4 text-base" : "px-5 py-2.5 text-sm"
+export function BuyButton({ href, children, className = "", size = "lg" }) {
+  const sizeClass =
+    size === "xl"
+      ? "px-12 py-5 text-lg font-bold uppercase tracking-wider"
+      : size === "lg"
+        ? "px-10 py-4 text-base font-bold uppercase tracking-wide"
+        : "px-5 py-2.5 text-sm font-bold uppercase tracking-wide"
 
   return (
-    <Link
+    <a
       href={href}
-      className={`bp-btn-primary group font-accent inline-flex items-center justify-center gap-2 rounded-full font-semibold transition ${sizeClass} ${className}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`bp-btn-primary group font-accent inline-flex items-center justify-center gap-2 rounded-full shadow-lg shadow-[#FFD238]/30 transition hover:scale-[1.03] hover:shadow-xl hover:shadow-[#FFD238]/40 ${sizeClass} ${className}`}
     >
+      {children}
+      <ArrowRight className="size-5 transition-transform group-hover:translate-x-0.5" />
+    </a>
+  )
+}
+
+export function PrimaryButton({ href, children, className = "", size = "lg", external = false }) {
+  const sizeClass = size === "lg" ? "px-8 py-4 text-base" : "px-5 py-2.5 text-sm"
+  const classes = `bp-btn-primary group font-accent inline-flex items-center justify-center gap-2 rounded-full font-semibold transition ${sizeClass} ${className}`
+
+  if (external) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" className={classes}>
+        {children}
+        <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+      </a>
+    )
+  }
+
+  return (
+    <Link href={href} className={classes}>
       {children}
       <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
     </Link>

@@ -1,7 +1,8 @@
 "use client"
 
+import * as LucideIcons from "lucide-react"
 import config from "@/config"
-import { Eyebrow, PrimaryButton, SecondaryButton } from "@/components/landing/ui"
+import { BuyButton } from "@/components/landing/ui"
 import {
   CircleRing,
   FloatingDot,
@@ -10,10 +11,16 @@ import {
   ProductVisual,
   SoilTexture,
 } from "@/components/landing/decorations"
-import { MotionParallax, MotionSection } from "@/components/landing/motion"
+import { MotionParallax, MotionSection, MotionStagger, MotionItem } from "@/components/landing/motion"
+
+function BenefitIcon({ name }) {
+  const Icon = LucideIcons[name] || LucideIcons.Square
+  return <Icon className="size-5 shrink-0 text-[#FFD238]" />
+}
 
 export default function Hero() {
-  const { eyebrow, title, subtitle, cta, ctaSecondary } = config.landing.hero
+  const { title, tagline, description, benefits } = config.landing.hero
+  const shop = config.landing.shop
 
   return (
     <section className="relative overflow-hidden bg-[#2F5F3B] text-white">
@@ -28,37 +35,39 @@ export default function Hero() {
       <FloatingDot className="right-[35%] top-[18%]" size={6} color="#FFD238" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-5 pb-20 pt-16 md:px-8 md:pb-28 md:pt-24">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <div className="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
           <MotionSection>
-            {eyebrow && (
-              <div className="mb-8">
-                <Eyebrow variant="onGreen">{eyebrow}</Eyebrow>
-              </div>
-            )}
-
-            <h1 className="font-heading text-balance text-4xl font-bold leading-[1.02] tracking-tight text-white md:text-5xl lg:text-6xl xl:text-7xl">
+            <h1 className="font-heading text-balance text-6xl font-bold leading-none tracking-tight text-white md:text-7xl lg:text-8xl">
               {title}
             </h1>
 
-            <p className="font-accent mt-6 max-w-xl text-lg leading-relaxed text-white/75 md:text-xl">
-              {subtitle}
+            <p className="font-accent mt-6 text-xl font-bold leading-snug text-[#FBED8C] md:text-2xl">
+              {tagline}
             </p>
 
-            <div className="mt-10 flex flex-wrap items-center gap-4">
-              <PrimaryButton href={cta.href}>{cta.label}</PrimaryButton>
-              {ctaSecondary && (
-                <SecondaryButton href={ctaSecondary.href} variant="onGreen">
-                  {ctaSecondary.label}
-                </SecondaryButton>
-              )}
+            <p className="mt-5 max-w-lg text-base leading-relaxed text-white/75 md:text-lg">
+              {description}
+            </p>
+
+            <MotionStagger className="mt-10 grid gap-3 sm:grid-cols-2">
+              {benefits.map((item) => (
+                <MotionItem key={item.text}>
+                  <div className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3.5 backdrop-blur-sm">
+                    <BenefitIcon name={item.icon} />
+                    <span className="text-sm leading-snug text-white/90">{item.text}</span>
+                  </div>
+                </MotionItem>
+              ))}
+            </MotionStagger>
+
+            <div className="mt-10">
+              <BuyButton href={shop.href} size="xl">
+                {shop.label}
+              </BuyButton>
             </div>
-
-            <p className="mt-5 text-sm text-white/45">
-              Acceso anticipado · Hecho en México · Cero plástico
-            </p>
           </MotionSection>
 
-          <MotionParallax>
+          <MotionParallax className="lg:pt-4">
             <ProductVisual />
           </MotionParallax>
         </div>
